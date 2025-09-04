@@ -1,7 +1,2 @@
-# form3js
-
-clone of form studio
-
-i add a liquid distortion on images using three.js and shaders
-
-in future need refinement
+# so this is not my actual portfolio, as i aurgently need my portfolio, i created this
+# my actual portfolio is under development phase
