@@ -20,32 +20,95 @@ requestAnimationFrame(raf);
 
 
 //heading and separator animation
-function breakTheTextGsap(domElem) {
-    let domElemVar = domElem.textContent;
-    let domElemHeight = domElem.offsetHeight;
-    // alert(domElemHeight)
-    let splittedText = domElemVar.split("");
-    let clutter = "";  
-    splittedText.forEach(function(element, index) {
-        clutter += `<span class="element">${element}</span>`;
-    });
-    h1.innerHTML = clutter
+// function breakTheTextGsap(domElem) {
+//     let domElemVar = domElem.textContent;
+//     let domElemHeight = domElem.offsetHeight;
+//     // alert(domElemHeight)
+//     let splittedText = domElemVar.split("");
+//     let clutter = "";  
+//     splittedText.forEach(function(element, index) {
+//         clutter += `<span class="element">${element}</span>`;
+//     });
+//     h1.innerHTML = clutter
 
-    gsap.from(".element", {
+//     gsap.from(".element", {
+//         y: domElemHeight,
+//         delay:0.2,
+//         duration:0.8,
+//         stagger:0.2,
+//         ease: "expoScale(0.5,7,none)", 
+//     })
+//     gsap.from(".separator", {
+//         y: 300,
+//         delay:0.05,
+//         duration: 1,
+//         stagger:0.1,
+//         ease: "expoScale(0.5,7,none)", 
+//     })
+// }
+// function breakTheTextGsap(domElem) {
+//     let domElemVar = domElem.innerHTML; // use innerHTML so <br> is kept
+//     let domElemHeight = domElem.offsetHeight;
+
+//     let splittedText = domElemVar.split("");
+//     let clutter = "";
+
+//     splittedText.forEach(function (element) {
+//         if (element === " ") {
+//             clutter += `<span class="element">&nbsp;</span>`; // space
+//         } 
+//         // else if (element === "<") {
+//         //     clutter += "<br>"; // keep line break
+//         // } else if (element === "b") {
+//         //     clutter += ""; // keep line break
+//         // }else if (element === "r") {
+//         //     clutter += ""; // keep line break
+//         // }else if (element === ">") {
+//         //     clutter += ""; // keep line break
+//         // }
+//         else {
+//             clutter += `<span class="element">${element}</span>`;
+//         }
+//     });
+
+//     domElem.innerHTML = clutter;
+
+//     gsap.from(domElem.querySelectorAll(".element"), {
+//         y: domElemHeight,
+//         // delay: 0.2,
+//         duration: 0.8,
+//         stagger: 0.05,
+//         ease: "expoScale(0.5,7,none)",
+//     });
+// }
+
+
+function breakTheTextGsap(domElem) {
+    let domElemVar = domElem.innerHTML; // innerHTML keeps <br> if present
+    let domElemHeight = domElem.offsetHeight;
+
+    let splittedText = domElemVar.split("");
+    let clutter = "";
+
+    splittedText.forEach(function (element) {
+        if (element === " ") {
+            clutter += `<span class="element">&nbsp;</span>`; // space
+        } else {
+            clutter += `<span class="element">${element}</span>`;
+        }
+    });
+
+    domElem.innerHTML = clutter;
+
+    gsap.from(domElem.querySelectorAll(".element"), {
         y: domElemHeight,
-        delay:0.2,
-        duration:0.8,
-        stagger:0.2,
-        ease: "expoScale(0.5,7,none)", 
-    })
-    gsap.from(".separator", {
-        y: 300,
-        delay:0.05,
-        duration: 1,
-        stagger:0.1,
-        ease: "expoScale(0.5,7,none)", 
-    })
+        delay: 0.02,
+        duration: 0.8,
+        stagger: 0.114,
+        ease: "expoScale(0.5,7,none)",
+    });
 }
+
 
 //subHeading Animation
 function subHeading() {
@@ -292,7 +355,7 @@ function footer(domElem)  {
     });
 }
 
-let h1 = document.querySelector("h1");
+// let h1 = document.querySelectorAll(".page1 h1");
 
 let blogH1 = document.querySelector(".page5 h1")
 
@@ -301,7 +364,18 @@ let tbiH1 = document.querySelector(".page6 h1")
 let footerH1 = document.querySelector("footer .heading h1")
 
 //heading and separator animation
-breakTheTextGsap(h1)
+// h1s.forEach((h1) => {
+//     breakTheTextGsap(h1);
+// });
+// breakTheTextGsap(h1)
+
+let h1s = document.querySelectorAll(".page1 h1");  // plural, since it's a NodeList
+h1s.forEach((h1) => {
+    breakTheTextGsap(h1);
+});
+
+
+
 
 //subHeading Animation
 subHeading();   
@@ -316,7 +390,7 @@ showCase();
 slider();
 
 //blogs animation
-blogs(blogH1) 
+// blogs(blogH1) 
 
 // TBI animation
 TBI(tbiH1)
