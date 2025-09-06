@@ -119,6 +119,7 @@ nav {
 .sections span {
   font-family: second;
   font-size: 3vw;
+  cursor: pointer;
 }
 
 
@@ -410,7 +411,7 @@ nav {
 .leftP , .rightP {
   width: 100%;
   padding: 0.1vw;
-  font-size: 2.25vw;
+  font-size: 5vw;
   line-height: 100%;
   text-transform: uppercase;
   text-align: center;

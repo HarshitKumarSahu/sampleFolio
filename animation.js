@@ -341,7 +341,7 @@ function footer(domElem)  {
     let domElemHeight = domElem.offsetHeight;
     ScrollTrigger.create({
         trigger: "footer",
-        start: "top 40%",
+        start: "top 60%",
         // markers : true,       
         onEnter: () => {
             gsap.from("footer .heading h1 span", {
